@@ -1,0 +1,280 @@
+#file handling in billing
+#catering
+import time
+class Error(Exception):
+    pass
+class Input_data:
+    name="None"
+    gmail="None"
+    mobile_no=0
+    alternate_no=0
+    def user_info(self):
+        ans='y'
+        while(ans):
+            
+            time.sleep(1)
+            self.name=input("Enter your name :")
+            self.gmail=input("Enter your mail id :")
+            self.mobile_no=int(input("Enter your mobile number : "))
+            self.alternate_no=int(input("Enter the alternate number : "))
+
+            my_file=open("info.txt","a")
+
+            try:
+
+                if(self.mobile_no==self.alternate_no):
+                    raise Error
+                    break
+
+                else:
+                    my_file.write("\n1 \t Name: "+self.name+ "\n\tGmail : "+self.gmail+"\n\t Mobile no. :"+ str(self.mobile_no)+ "\n\t Alternate number:" +str(self.alternate_no))
+                    my_file.close
+
+            except Error as e:
+                print(e,"XXXXXXXXXXXXXX : Both the number cannot be same : XXXXXXXXXXXXXX")
+
+            else:
+                time.sleep(1)
+                print("Thank you for filling the data")
+
+                time.sleep(2)
+                addmore=input("Want to Re-enter the data? y/n : ")
+
+                if(addmore=='n'):
+                    break
+
+                else:
+                    time.sleep(2)
+                    print("Thank you")
+
+
+class Information:
+    Event='W'
+    Banquets='3'
+
+    def eventselection(self):
+        print("We have the following four event categories : Wedding, Birthday Party, GetTogether, Reception \n")
+
+        time.sleep(3)
+        print("To select an event accordingly your requirements.\n Type: W for Wedding, B for Birthday Party, G for GetTogether or R for Reception. \n")
+
+        time.sleep(3)
+        self.Event=input("Enter the type of event accordingly your needs(In CAPS) : ")
+        ans='y'
+
+        while(ans):
+
+            if(self.Event=="W"):
+                print("Three of most famous and affordable Wedding sites of Gujarat :\n 1)Laxmi Vilas Palace Banquets & Conventions, Ajwa Road, Baroda\n 2)Aam Bagan, Bodakdev, Ahmedabad\n 3)Riparian Resort, Ajwa Road, Baroda\n")
+
+                time.sleep(3)
+                self.Banquets=int(input("Banquets number allocated : "))
+
+                if(self.Banquets==1):
+                    print(">>>>Laxmi Villas Palace :- \nPrice : 1,00,000 per day")
+                    break
+                elif(self.Banquets==2):
+                    print(">>>>Aam Bagam :- \nPrice : 89,999/- Per day ")
+                    break
+                elif(self.Banquets==3):
+                    print(">>>>Riparian :- \nPrice : 69,999/- Per day")
+                    break
+
+
+            elif(self.Event=="B"):
+
+                print("Three of most famous and affordable Birthday party venues of Gujarat :\n 1)Agashiye Lounge and Garden, Lal Darwaja, Ahmedabad\n 2)The Waterside, Navrangpura, Ahmedabad\n 3)The Fern AN-Ecotel Hotel, Kaliyabid, Bhavnagar\n")
+
+                time.sleep(3)
+                self.Banquets=int(input("Banquets number allocated : "))
+
+                if(self.Banquets==1):
+                    print(">>>>Agashiye Lounge :- \nPrice : 1,00,000 per day")
+                    break
+                elif(self.Banquets==2):
+                    print(">>>>Water side :- \nPrice : 89,999/- Per day ")
+                    break
+                elif(self.Banquets==3):
+                    print(">>>>Ferm AN-Ecotel :- \nPrice : 69,999/- Per day")
+                    break
+
+            elif(self.Event=="G"):
+                print("Three of most famous and affordable Get Together cozy places of Gujarat :\n 1)Elysian, Gotri, Vadodara\n 2)Hampton by Hilton, Alkapuri, Vadodara\n 3)Casa Blanca Garden Lawns, Bopal, Ahmedabad")
+
+                time.sleep(3)
+                self.Banquets=int(input("Banquets number allocated : "))
+
+                if(self.Banquets==1):
+                    print(">>>>Elysian :- \nPrice : 1,00,000 per day")
+                    break
+                elif(self.Banquets==2):
+                    print(">>>>Hampton :- \nPrice : 89,999/- Per day ")
+                    break
+                elif(self.Banquets==3):
+                    print(">>>>Casa Blanca :- \nPrice : 69,999/- Per day")
+                    break
+
+            elif(self.Event=="R"):
+                print("Three of most famous and affordable Reception venues of Gujarat :\n 1)Kabir Banquets and Conventions, Vadodara, Gujarat\n 2)Shreeji Party Plot, Chokdi, Gujarat\n 3)The Leela Gandhinagar, Gandhinagar \n")
+
+                time.sleep(3)
+                self.Banquets=int(input("Banquets number allocated : "))
+
+                if(self.Banquets==1):
+                    print(">>>>Kabir Farm :- \nPrice : 1,00,000 per day")
+                    break
+                elif(self.Banquets==2):
+                    print(">>>>Shreeji Party Plot :- \nPrice : 89,999/- Per day ")
+                    break
+                elif(self.Banquets==3):
+                    print(">>>>Leela :- \nPrice : 69,999/- Per day")
+                    break
+            else:
+                time.sleep(2)
+                print("Please re-enter your event site as explained before. ")
+
+                time.sleep(2)
+                addmore=input("Re consider ? y/n")
+                if(addmore!='y'):
+                    break
+
+
+class Chatbot:
+    ques='1'
+    def chatbot(self):
+        print("Ask our chatbot built-in queries for any doubts :/n")
+        time.sleep(3)
+        print("1:What is the capacity of most of the venues available on your site?")
+        time.sleep(1)
+        print("2:Are the reviews about the sites mostly positive or negative")
+        time.sleep(1)
+        print("3:What are the hours of operation for the event site?")
+        time.sleep(1)
+        print("4:Are there any nearby hotels or accommodations for out-of-town visitors attending events?")
+        time.sleep(1)
+        print("5:Are travelling services available for these sites or not? \n")
+  
+        list_of_queries=[1,2,3,4,5]
+    
+    
+        ans="yes"
+        while(ans):
+            time.sleep(2)
+            self.ques=int(input("Enter any number given above as per your query : "))
+            if self.ques in list(list_of_queries):
+                if (self.ques==1):
+                    time.sleep(1)
+                    print("The venues provided by us are capable for small events or big events with less than 100 or more than 700 people according to your need.\n")
+                if (self.ques==2):
+                    time.sleep(1)
+                    print("We have chosen particular venues with most poitive reviews for client's satisfication.\n")
+                if (self.ques==3):
+                    time.sleep(1)
+                    print("The hours of operation vary depending on the event schedule. Please check our website for the latest information.\n")
+                if (self.ques==4): 
+                    time.sleep(1)
+                    print("Yes, there are several hotels and accommodations located within a short distance of the event site. Please check our website for recommendations and booking information\n")
+                if (self.ques==5):
+                    time.sleep(1)
+                    print("Travelling services are available for big events such as weddings or receptions. Additional charges might apply for these.\n") 
+            else:
+                time.sleep(1)
+                print("We did not understand your question. Please select a question again")
+                time.sleep(2)
+            add=(input("Want to repeat above question yes/no :"))
+            if(add!="yes"):
+                break
+
+class Ebilling:
+    def ebill(self):
+        print("**********************************************************8**E-BILLING*********************************************************************\n")
+        print("Enter  --- > 1 for payment in cash          OR            2 for online upi payment:")
+        payment=int(input("Enter 1 or 2 as above for any payment method suiting your preferences : "))
+        if(payment==1):
+            print("\nYou have selected to pay the amount in cash\n")
+            guests=int(input("Enter the number of guests: "))
+            if(guests>200):
+                a=float(input("\nInput the amount of cash in numbers: "))
+                amount=((20/100)*a)
+                print("\nAs the number of guests are above 200 our site is giving you a discount of 20%, which makes the amount to be paid : ",amount)
+                print("\nThankyou for using our website, You have successfully paid amount: ",amount)
+            else:
+                a=float(input("Input the amount of cash in numbers: "))
+                b=input("\nInput the amount of cash in words: ")
+                print("\nThankyou for using our website, You have successfully paid rupees: ",a)
+        else:
+            print("\nYou have selected to pay the amount through online upi payment\n")
+            guests=int(input("Enter the number of guests: "))
+            if(guests>200):
+                upi=input("\nEnter your UPI Payment id to transact money: ")
+                date=input("\nEnter today's date: ")
+                a=float(input("\nInput the amount of cash in numbers: "))
+                amount=((20/100)*a)
+                print("\nAs the number of guests are above 200 our site is giving you a discount of 20%, which makes the amount to be paid only rupees: ",amount)
+                print("\nSuccessful transaction by upi id " +upi+ " on date " +date+ " has been done of rupees: ",amount)
+            else:
+                upi=input("Enter your UPI Payment id to transact money: ")
+                date=input("\nEnter today's date: ")
+                a=float(input("\nInput the amount of cash in numbers: "))
+                b=input("\nInput the amount of cash in words: ")
+                print("\nSuccessful transaction by upi id " +upi+ " on date " +date+ " has been done of rupees: ",a)
+
+
+print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Welcome to Event_Handler<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+time.sleep(1)
+print("                                    Lets First start with the personal data                                 ")          
+time.sleep(3.5)  
+inp=Input_data()
+inp.user_info()
+time.sleep(2.5)
+print(">>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<Information regarding the event and selection>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
+time.sleep(3.5)
+obj=Information()
+obj.eventselection()
+time.sleep(2.5)
+#
+inp_ut=(input("Enter y/n for chat bot : "))
+
+if(inp_ut=='y'):
+    time.sleep(1)
+    print(">>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<Welcome to chatbot>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
+    time.sleep(3.5)
+    obj2=Chatbot()
+    obj2.chatbot()
+else:
+    time.sleep(1)
+    print("Thank you for conforming")
+
+time.sleep(2.5)
+eb=Ebilling()
+eb.ebill()
+
+
+ans='y'
+while(ans):
+    add_more=input("Want to return to HOME PAGE ? y/n : ")
+    if(add_more=='y'):
+        print("A : Chatbot")
+        print("B : Information regarding Plots and the EVENT")
+        print("C : E Billing")
+        in_put=input("Enter a Alphabet : ")
+        if(in_put=='A'):
+            time.sleep(1)
+            print(">>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<Welcome to chatbot>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
+            time.sleep(3.5)
+            obj2=Chatbot()
+            obj2.chatbot()
+
+        if(in_put=='B'):
+            print(">>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<Information regarding the event and selection>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
+            time.sleep(3.5)
+            obj=Information()
+            obj.eventselection()
+
+        if(in_put=='C'):
+            eb=Ebilling()
+            eb.ebill()
+
+    else:
+        print("-------------------------------------------------------XXX---------------------------------------------------")
+        break
